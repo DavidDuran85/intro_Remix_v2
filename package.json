@@ -1,0 +1,39 @@
+{
+  "name": "borrame",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "postinstall": "prisma generate",
+    "tailwind-dev": "npx concurrently \"npx tailwindcss -w -i tailwind.css -o app/styles/style.css\" \"remix dev --manual\" ",
+    "tailwind-prod": "npx tailwindcss -m -i tailwind.css -o app/styles/style.css && remix build",
+    "build": "npm run tailwind-prod",
+    "dev": "npm run tailwind-dev",
+    "start": "remix-serve ./build/index.js",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@netlify/remix-adapter": "^1.0.0",
+    "@prisma/client": "^5.4.2",
+    "@remix-run/css-bundle": "^2.0.1",
+    "@remix-run/node": "^2.0.1",
+    "@remix-run/react": "^2.0.1",
+    "@remix-run/serve": "^2.0.1",
+    "isbot": "^3.6.8",
+    "prisma": "^5.4.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^1.14.0"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^2.0.1",
+    "@remix-run/eslint-config": "^2.0.1",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "eslint": "^8.38.0",
+    "typescript": "^5.1.6"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
